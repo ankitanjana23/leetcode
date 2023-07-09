@@ -1,2 +1,2 @@
 # leetcode
-hellow everyone here I am provide leetcode problem  solution 
+hello everyone here I am provide everyday leetcode problem , plz follow my page 
