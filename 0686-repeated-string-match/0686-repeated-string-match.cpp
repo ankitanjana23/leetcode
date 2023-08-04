@@ -1,29 +1,26 @@
 class Solution {
 public:
-    int repeatedStringMatch(string a, string b) {
-        int n = a.size();
+    int repeatedStringMatch(string a, string b) { 
         int m = b.size();
-        
-        string repeated_a = "";
-        int repetitions = 0;
-        
-        while (repeated_a.size() < m) {
-            repeated_a += a;
-            repetitions++;
-        }
-        
-        if (repeated_a.find(b) != string::npos) {
-            return repetitions;
-        }
-        
-        // Try repeating one more time
-        repeated_a += a;
-        repetitions++;
-        
-        if (repeated_a.find(b) != string::npos) {
-            return repetitions;
-        }
-        
+        int cnt  = 0;
+        string repeat = "";
+        int n = repeat.size();
+        while(n<m){
+            repeat += a;
+            n = repeat.size();
+            cnt += 1;
+        } 
+        a = repeat;
+        int found = a.find(b);
+        if(found != string::npos) return cnt;
+
+        //one time extra double 
+        a+= a;
+        cnt += 1;
+        found = a.find(b);
+        if(found != string::npos) return cnt;
+
         return -1;
     }
+
 };
