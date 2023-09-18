@@ -1,12 +1,22 @@
 class Solution {
 public:
     vector<int> sortedSquares(vector<int>& nums) {
-        //find square and sort 
-        int n = nums.size() ;
-        for(int i =0;i<n;i++){
-           nums[i] = pow(nums[i],2);
+        //maximum ko back mai placed 
+        vector<int> ans(nums.size());
+        int left =0;
+        int right = nums.size()-1;
+        for(int i =nums.size()-1;i>=0;i--){
+            int cp1 = nums[left] * nums[left];
+            int cp2 = nums[right] * nums[right];
+            if(cp2>cp1){
+               ans[i] = cp2;
+               right--;
+            }
+            else {
+                ans[i] = cp1;
+                left++;
+            }
         }
-       sort(nums.begin() , nums.end());
-       return nums;
+        return ans;
     }
 };
